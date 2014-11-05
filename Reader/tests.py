@@ -63,7 +63,7 @@ class Test:
 			result = WRONG
 		self.counter[result] += 1
 		print 'result:',result
-		return msg[result]+(self.content[key].getRespuestaCorrecta() if result==WRONG else '')
+		return msg[result],':',(self.content[key].getRespuestaCorrecta() if result==WRONG else '')
 	
 	def finalResult(self):
 		"""

@@ -77,7 +77,7 @@ Respuesta correcta: {}
 			return self.respuestas[respuesta][0] == self.correct
 		else :
 			for answer in respuesta.split('-'):
-				if(self.respuestas[answer][0] not in self.correct.split('-')):
+				if(answer not in self.correct.split('-')):
 					return False
 			return True
 	
