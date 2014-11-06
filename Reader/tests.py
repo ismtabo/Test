@@ -95,7 +95,7 @@ Resultado:			{}
 			if nmark > key:
 				return marks[key] 
 		else:
-			return marks[-1]
+            return marks[-1]
 
     def setNewQuestion(self,question):
         """
