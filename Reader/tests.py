@@ -27,7 +27,9 @@ class Test:
 
 	def __init__(self,info,content):
 		"""
-			Inicializa una instancia de Test
+		Inicializa una instancia de Test
+		:param info: informacion del test
+		:param content: lista de preguntas del test
 		"""
 		info = [info[i] if not i > 0 else ((int)(info[i]) if not i > 1 else (float)(info[i])) for i in range(len(info))]
 		self.info = dict(zip(info_cabecera,info))
@@ -39,20 +41,22 @@ class Test:
 	
 	def getQuestions(self,key):
 		"""
-			Getter de la instancia de Pregunta correspondiente
-			param: key - indice de la pregunta
+		:param key: - indice de la pregunta
+		:return: pregunta correspondiente al indice
 		"""
 		return self.content[key]
 
 	def getNumQuestions(self):
 		"""
-			Getter del numero de preguntas del test
+		:return: informacion del test
 		"""
 		return self.info[NQUESTIONS]
 	
 	def getQResult(self,key,answer):
 		"""
-			Dada la respuesta del usuario y la id de la pregunta incrementa el correspondiente
+		Dada la respuesta del usuario y la id de la pregunta incrementa el correspondiente
+		:param key: indice de la pregunta correspondiente
+		:param answer: respuesta del usuario
 		"""
 		result = 0
 		if(answer==str(0)):
@@ -67,7 +71,7 @@ class Test:
 	
 	def finalResult(self):
 		"""
-			Devuelve el resultado final de los contadores de las respuestas y 
+		:return: valor de contadores, nota final y calificacion
 		"""
 		return """--------------------------------------------------------
 Respuestas correctas: 		{}
@@ -79,19 +83,26 @@ Resultado:			{}
 
 	def nummark(self):
 		"""
-			Devuelve la nota numerica del examen de 0 a 10
+		:return: nota numerica del examen
 		"""
 		return (self.counter[RIGHT]*self.info[RIGHT]-self.counter[WRONG]*self.info[WRONG]-self.counter[EMPTY]*self.info[EMPTY])//self.getNumQuestions()*10
 		
 	def abcmark(self,nmark):
 		"""
-			Devuelve un resultado en expresion linguistica de la nota del examen
+		:return: calificacion del examen
 		"""
 		for key in marks.keys():
 			if nmark > key:
 				return marks[key] 
 		else:
 			return marks[-1]
+
+    def setNewQuestion(self,question):
+        """
+        :param question:
+        :return:
+        """
+        pass
 	
 
 
