@@ -8,16 +8,16 @@ from Reader.tests import Test
 
 def run(test):
     """
-        TODO: Pedir una a una preguntas para introducir en el test, tambien dar la opcion de corregir introducidas
-        param: test
+    TODO: Pedir una a una preguntas para introducir en el test, tambien dar la opcion de corregir introducidas
+    :param test:
     """
     pass
 
 
 def main():
     """
-        Prodecimiento principal del programa
-        TODO: Bucle infinito que te permita elegir otro test(o el mismo) al acabar el presente
+    Prodecimiento principal del programa
+    TODO: Bucle infinito que te permita elegir otro test(o el mismo) al acabar el presente
     """
 
     correct_path = True

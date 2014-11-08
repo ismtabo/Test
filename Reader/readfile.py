@@ -23,7 +23,7 @@ class Read:
 
 	def getContent(self):
 		"""
-		Lee el fichero de la clase y separa las lineas y los elementos de cada linea del csv
+		Lee el fichero y separa las lineas y los elementos de cada linea del csv
 		con el separador ';;'
 		"""
 		with open(self.path, self.rwa) as testfile:

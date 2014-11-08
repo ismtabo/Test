@@ -4,7 +4,7 @@
 
 class Write:
     """
-    Interfaz de la entrada y salida del programa.
+    Implementacion de la entrada y salida del programa.
     """
     def __init__(self, path, rwa='r', coding='utf-8'):
         if path.split('/')[-1].split('.')[-1] == 'csv':
@@ -18,6 +18,10 @@ class Write:
 
 
     def setContent(self, test):
+        """
+		Escribe en el fichero de la clase y separa las lineas y los elementos de cada linea del csv
+		con el separador ';;'
+		"""
         testfile = open(self.path, self.rwa)
         infor = ';;'.join(test.getInfo())
         testfile.write(infor)
