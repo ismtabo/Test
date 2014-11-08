@@ -5,11 +5,14 @@
 
 class Read:
 	"""
-		Interfaz de la entrada y salida del programa.
+	Implementacion de la entrada y salida del programa.
 	"""
 	def __init__(self,path,rwa='r',coding='utf-8'):
 		"""
-			Inicializa una instancia de la clase
+		Inicializa una instancia de la clase
+		:param path: directorio del fichero de test
+		:param rwa: flag de formato de apertura del fichero
+		:param coding: formato de codificacion del fichero
 		"""
 		if path.split('/')[-1].split('.')[-1]=='csv':
 			self.path = path
@@ -20,8 +23,8 @@ class Read:
 
 	def getContent(self):
 		"""
-			Lee el fichero de la clase y separa las lineas y los elementos de cada linea del csv
-			con el separador ';;'
+		Lee el fichero de la clase y separa las lineas y los elementos de cada linea del csv
+		con el separador ';;'
 		"""
 		with open(self.path, self.rwa) as testfile:
 			lines = testfile.readlines()

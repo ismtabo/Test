@@ -7,8 +7,8 @@ from tests import Test
 
 def run(test):
 	"""
-		Ejecuta el test. Mostrando las preguntas y pidiendo la respuesta del usuario.
-		param: test
+	Ejecuta el test. Mostrando las preguntas y pidiendo la respuesta del usuario.
+	:param test:
 	"""
 	list_msg = ["Introduzca su respuesta o '0' para no contestar: ", "Introduzca sus respuestas separadas por comas(puede haber ninguna respuesta correcta) o '0' para no contestar: "]
 	for qkey in range(1, test.getNumQuestions() + 1):
@@ -31,8 +31,8 @@ def run(test):
 
 def main():
 	"""
-		Prodecimiento principal del programa
-		TODO: Bucle infinito que te permita elegir otro test(o el mismo) al acabar el presente
+	Prodecimiento principal del programa
+	TODO: Bucle infinito que te permita elegir otro test(o el mismo) al acabar el presente
 	"""
 	correct_path = True
 # 	path = raw_input('Introduzca el nombre (o ruta) de su fichero de test\'.csv\':')

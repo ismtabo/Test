@@ -20,10 +20,10 @@ info_cabecera = ['name', 'nq', RIGHT, WRONG, EMPTY]
 
 class Test:
     """
-		Implementacion de un Test con preguntas de seleccion unica:
-			Atributos:
-				info = diccionario de la informacion del Test
-				preguntas = list<Preguntas> 
+	Implementacion de un Test con preguntas de seleccion unica:
+		Atributos:
+			info = diccionario de la informacion del Test
+			preguntas = list<Preguntas>
 	"""
 
     def __init__(self, info, content):

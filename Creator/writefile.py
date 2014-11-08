@@ -2,13 +2,10 @@
 #
 # -*- coding: utf-8 -*-
 
-
-"""
-	Interfaz de la entrada y salida del programa.
-"""
-
-
 class Write:
+    """
+    Interfaz de la entrada y salida del programa.
+    """
     def __init__(self, path, rwa='r', coding='utf-8'):
         if path.split('/')[-1].split('.')[-1] == 'csv':
             self.path = path
