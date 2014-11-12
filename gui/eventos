@@ -1,0 +1,5 @@
+on_new_button_press_event
+on_open_button_press_event
+on_save_button_press_event
+on_save_as_button_press_event
+on_quit_button_press_event
