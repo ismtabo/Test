@@ -1,5 +1,15 @@
+1.Menu:
 on_new_button_press_event
 on_open_button_press_event
 on_save_button_press_event
 on_save_as_button_press_event
 on_quit_button_press_event
+
+2.preguntas:
+on_quest_add_button_press_event
+on_quest_rm_button_press_event
+on_quests_list_select_cursor_row
+
+3.editar:
+on_answer_add_button_press_event
+on_quest_r_button_press_event
