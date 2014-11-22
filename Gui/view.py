@@ -16,12 +16,6 @@ except:
 
 class GTKWindow:
     def __init__(self):
-        self.wTree = gtk.glade.XML("view.glade")
-        self.window = self.wTree.get_widget("window")
-
-        if (self.window):
-            self.window.connect("on_window_destroy", gtk.main_quit)
-
         # Crear interfaz de usuario
         self.builder = gtk.Builder()
         self.builder.add_from_file("view.glade")
@@ -62,3 +56,4 @@ class GTKWindow:
 
 if __name__ == "__main__":
     window = GTKWindow()
+    gtk.main()
