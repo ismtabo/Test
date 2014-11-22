@@ -13,3 +13,5 @@ on_quests_list_select_cursor_row
 3.editar:
 on_answer_add_button_press_event
 on_quest_r_button_press_event
+
+
