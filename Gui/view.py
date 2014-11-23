@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # 
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-""
+
 import logging
 import os
 
@@ -19,7 +20,13 @@ except:
     sys.exit(1)
 
 class GTKWindow:
+    """
+    Editor's windows implementation. Dedicated to the interaction with the user.
+    """
     def __init__(self):
+        """
+        Initialize editor windows without parameters
+        """
         # Crear interfaz de usuario
         self.builder = gtk.Builder()
         self.builder.add_from_file("view.glade")
@@ -62,10 +69,18 @@ class GTKWindow:
 
         
     def none(self,widget,data=None):
+        """
+        Sample event method in which by an OS's notifications it show which widget has the event
+        :param widget:
+        :param data:
+        """
         os.system("notify-send \"Evento en\" \"{}\"".format(widget))
         pass
 
     def main(self):
+        """
+        Run the main loop of the aplication
+        """
         print 'ejecutando main() '
         gtk.main()
         print "fin"
