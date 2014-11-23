@@ -25,10 +25,14 @@
     </columns>
   </object>
   <object class="GtkWindow" id="view">
+    <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="events">GDK_BUTTON_PRESS_MASK | GDK_STRUCTURE_MASK</property>
+    <property name="extension_events">all</property>
     <property name="title" translatable="yes">Editor</property>
     <property name="window_position">center</property>
     <property name="destroy_with_parent">True</property>
+    <signal name="delete-event" handler="on_view_delete_event" swapped="no"/>
     <child>
       <object class="GtkVBox" id="ppal_box">
         <property name="visible">True</property>
@@ -53,10 +57,11 @@
                         <property name="label">gtk-new</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="events">GDK_BUTTON_PRESS_MASK | GDK_STRUCTURE_MASK</property>
                         <property name="use_action_appearance">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="button-press-event" handler="on_new_button_press_event" swapped="no"/>
+                        <signal name="activate" handler="on_new_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -67,6 +72,7 @@
                         <property name="use_action_appearance">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_open_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -77,7 +83,7 @@
                         <property name="use_action_appearance">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="button-press-event" handler="on_save_button_press_event" swapped="no"/>
+                        <signal name="activate" handler="on_save_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -88,6 +94,7 @@
                         <property name="use_action_appearance">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_save_as_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -102,9 +109,11 @@
                         <property name="label">gtk-quit</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="events">GDK_BUTTON_PRESS_MASK | GDK_STRUCTURE_MASK</property>
                         <property name="use_action_appearance">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_quit_activate" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -237,6 +246,7 @@
                         <property name="no_show_all">True</property>
                         <property name="model">quest_store</property>
                         <property name="headers_clickable">False</property>
+                        <signal name="select-cursor-row" handler="on_quests_list_select_cursor_row" swapped="no"/>
                         <child>
                           <object class="GtkTreeViewColumn" id="quests">
                             <property name="title" translatable="yes">Preguntas</property>
@@ -266,10 +276,14 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkImage" id="quest_add">
+                          <object class="GtkButton" id="quest_add">
+                            <property name="label">gtk-zoom-in</property>
                             <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="stock">gtk-zoom-in</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="use_action_appearance">False</property>
+                            <property name="use_stock">True</property>
+                            <signal name="clicked" handler="on_quest_add_clicked" swapped="no"/>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -278,10 +292,14 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkImage" id="quest_rm">
+                          <object class="GtkButton" id="quest_rm">
+                            <property name="label">gtk-zoom-out</property>
                             <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="stock">gtk-zoom-out</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="use_action_appearance">False</property>
+                            <property name="use_stock">True</property>
+                            <signal name="clicked" handler="on_quest_rm_clicked" swapped="no"/>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -367,6 +385,7 @@
                               <object class="GtkTextView" id="wording_entry">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="border_width">4</property>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -425,27 +444,34 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkImage" id="answer_add">
+                                  <object class="GtkButton" id="answer_add">
+                                    <property name="label">gtk-add</property>
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="stock">gtk-add</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="use_action_appearance">False</property>
+                                    <property name="use_stock">True</property>
+                                    <signal name="clicked" handler="on_answer_add_clicked" swapped="no"/>
                                   </object>
                                   <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkImage" id="quest_r">
+                                  <object class="GtkButton" id="answer_rm">
+                                    <property name="label">gtk-remove</property>
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="stock">gtk-remove</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="use_action_appearance">False</property>
+                                    <property name="use_stock">True</property>
+                                    <signal name="clicked" handler="on_answer_rm_clicked" swapped="no"/>
                                   </object>
                                   <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
-                                    <property name="padding">25</property>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
                                     <property name="position">2</property>
                                   </packing>
                                 </child>
