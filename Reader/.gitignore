@@ -1,9 +1,4 @@
-/main.pyc
-/pregunta.pyc
-/readfile.pyc
-/main.pyc
-/pregunta.pyc
-/readfile.pyc
-/.metadata
-/*.csv
-
+*.pyc
+.metadata
+*.csv
+tests
