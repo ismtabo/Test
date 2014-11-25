@@ -4,6 +4,7 @@
 
 import logging
 import os
+from answer_entry import AnswerWidget
 
 import sys
 try:
@@ -34,10 +35,10 @@ class GTKWindow:
         # a los que se necesita acceder en el codigo
         self.name_test = self.builder.get_object("name_entry")
         self.num_questions = self.builder.get_object("nquests_info")
-        self.quests_list = self.builder.get_object("quests_list")
+        self.quests_list = self.builder.get_object("quests_store")
         self.quest_label = self.builder.get_object("quest_label")
         self.wording = self.builder.get_object("wording_entry")
-        self.answers_list = self.builder.get_object("answers_list")
+        self.answers_list = gtk.ListStore(self.builder.get_object("answers_store"))
         self.correct_answers = self.builder.get_object("correct_answer_label")
         self.point_correct = self.builder.get_object("correct_spin")
         self.point_wrong = self.builder.get_object("wrong_spin")
@@ -60,6 +61,7 @@ class GTKWindow:
         "on_answer_add_clicked" : self.none ,
         "on_answer_rm_clicked" : self.none
         }
+        self.answers_list.append(self.create_answer_container())
         self.builder.connect_signals(eventos)
 
         self.num_questions.set_text(str(0))
@@ -84,6 +86,14 @@ class GTKWindow:
         print 'ejecutando main() '
         gtk.main()
         print "fin"
+
+    def create_answer_container(self):
+        box = gtk.HBox()
+        check = gtk.CheckButton()
+        answer_entry = gtk.Entry()
+        box.pack_start(check,expand=False,fill=False)
+        box.pack_end(answer_entry)
+        return tuple([box])
 
 
 if __name__ == "__main__":
