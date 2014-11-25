@@ -73,8 +73,8 @@ class Test:
         else:
             result = WRONG
         self.counter[result] += 1
-        print 'result:', result
-        return msg[result], ':', (self.content[key].getTextRespuestaCorrecta() if result == WRONG else '')
+        # print 'result:', result
+        return msg[result]+ ' : '+ (self.content[key].getTextRespuestaCorrecta() if result == WRONG else '')
 
     def finalResult(self):
         """

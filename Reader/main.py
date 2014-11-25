@@ -35,9 +35,9 @@ def main():
 	TODO: Bucle infinito que te permita elegir otro test(o el mismo) al acabar el presente
 	"""
 	correct_path = True
-# 	path = raw_input('Introduzca el nombre (o ruta) de su fichero de test\'.csv\':')
+	path = raw_input('Introduzca el nombre (o ruta) de su fichero de test\'.csv\':')
 #  	path = 'testPOO.csv'
-	path = 'testEDA.csv'
+# 	path = 'testEDA.csv'
 	try:
 		io = Read(path)
 	except IOError:
