@@ -7,11 +7,11 @@ Esta aplicación esta pensada para servir de apoyo a estudiantes que tengan exam
 
 ====
 Que servicios te ofrece:
--Crear, editar y diseñar test de múltiple opción.
--Ejecutarlos para poder probarte a ti mismo.
--Interfaces por terminal o Gtk.
+- Crear, editar y diseñar test de múltiple opción.
+- Ejecutarlos para poder probarte a ti mismo.
+- Interfaces por terminal o Gtk.
 
 ====
 Que está pensado para futuras versiones:
--Exportar test en pdf, o excel
--Servicio web para compartir diferentes test y plantillas para su impresión
+- Exportar test en pdf, o excel
+- Servicio web para compartir diferentes test y plantillas para su impresión
