@@ -3,19 +3,21 @@
 # -*- coding: utf-8 -*-
 
 from random import shuffle
+
 from pregunta import Pregunta
 
 
-#Constantes:
+
+# Constantes:
 RIGHT = 'r'
 WRONG = 'w'
 EMPTY = 'e'
 NAME = 'name'
 NQUESTIONS = 'nq'
 
-msg = {RIGHT: "Respuesta correcta", WRONG: "Respuesta incorrecta", EMPTY: "Respuesta sin contestar"}
+msg = {RIGHT: "Respuesta isCorrectAnswer", WRONG: "Respuesta incorrecta", EMPTY: "Respuesta sin contestar"}
 marks = {9.0: "Matricula", 8.0: "Sobresaliente", 7.0: "Notable", 6.0: "Aprobado", 5.0: "Suficiente", -1.0: "Suspenso"}
-info_cabecera = ['name', 'nq', RIGHT, WRONG, EMPTY]
+info_cabecera = [NAME, NQUESTIONS, RIGHT, WRONG, EMPTY]
 
 
 class Test:
@@ -36,7 +38,6 @@ class Test:
         self.info = dict(zip(info_cabecera, info))
         self.content = [Pregunta(i[0], i[1], i[3:], i[2]) for i in content]
         shuffle(self.content)
-        self.content = dict(zip(range(1, len(self.content) + 1), self.content))
         self.counter = {RIGHT: 0, WRONG: 0, EMPTY: 0}
 
 
@@ -52,6 +53,42 @@ class Test:
 		:return: numero de las preguntas del test
 		"""
         return self.info[NQUESTIONS]
+
+    def setNumQuestions(self, numquestions):
+        """
+        :param numquestions: nuevo valor de numero de preguntas
+        """
+        self.info[NQUESTIONS] = numquestions
+
+    def getName(self):
+        """
+        :return: nombre del test
+        """
+        return self.info[NAME]
+
+    def setName(self, name):
+        """
+        :param name: nuevo nombre del test
+        """
+        self.info[NAME] = name
+
+    def setCorrectPoints(self, point):
+        """
+        :param point: nuevo valor para los puntos
+        """
+        self.info[CORRECT] = point
+
+    def setWrongPoints(self, point):
+        """
+        :param point: nuevo valor para los puntos
+        """
+        self.info[WRONG] = point
+
+    def setEmptyPoints(self, point):
+        """
+        :param point: nuevo valor para los puntos
+        """
+        self.info[EMPTY] = point
 
     def getInfo(self):
         """
@@ -74,7 +111,7 @@ class Test:
             result = WRONG
         self.counter[result] += 1
         # print 'result:', result
-        return msg[result]+ ' : '+ (self.content[key].getTextRespuestaCorrecta() if result == WRONG else '')
+        return msg[result] + ' : ' + (self.content[key].getTextRespuestaCorrecta() if result == WRONG else '')
 
     def finalResult(self):
         """

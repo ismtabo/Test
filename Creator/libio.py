@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 
 
-class Read:
+class IOFile:
     """
     Implementacion de la entrada y salida del programa.
     """
@@ -38,4 +38,20 @@ class Read:
         questions = map(lambda x: x.split(';;'),lines[1:])
         testfile.close()
         return infor,questions
+
+    def setContent(self, test):
+        """
+		Escribe en el fichero de la clase y separa las lineas y los elementos de cada linea del csv
+		con el separador ';;'
+		"""
+        testfile = open(self.path, self.rwa)
+        infor = ';;'.join(test.getInfo())
+        testfile.write(infor)
+        for key in test.getQuestions().keys():
+            with test.getQuestions()[key] as question:
+                testfile.write("""{};;{};;{};;{}""".format(question.getWording(), question.getCorrectAnswers(),
+                                                           question.getMultiple(),
+                                                           ';;'.join([')'.join(question[key]) for key in
+                                                                      question.getAnswers().keys()])))
+        testfile.close()
 

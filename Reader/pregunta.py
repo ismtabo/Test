@@ -23,7 +23,7 @@ class Pregunta:
         """
         Inicializa una instancia de Pregunta (respuesta simple por defecto)
         :param enunciado:
-        :param correcta: respuesta correcta
+        :param correcta: respuesta isCorrectAnswer
         :param respuestas: arraylist de respuestas
         :param multiple: flag de respuesta multiple
         """
@@ -55,14 +55,14 @@ class Pregunta:
 
     def getRespuestaCorrecta(self):
         """
-        :return: respuesta correcta de la pregunta
+        :return: respuesta isCorrectAnswer de la pregunta
         """
         return self.correct
 
 
     def getTextRespuestaCorrecta(self):
         """
-        :return: respuesta(s) correcta(s) en formato de texto
+        :return: respuesta(s) isCorrectAnswer(s) en formato de texto
         """
         return ','.join(self.correct.split('-'))
 
@@ -74,7 +74,7 @@ class Pregunta:
 		Multiple:{}
 Respuestas:
 {}
-Respuesta correcta: {}
+Respuesta isCorrectAnswer: {}
 """.format(self.enunciado, self.multiple,
            '\n'.join([(str)(respuesta[0]) + ')' + (str)(respuesta[1]) for respuesta in self.respuestas.values()]),
            self.correct)
